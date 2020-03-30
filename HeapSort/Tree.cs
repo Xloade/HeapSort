@@ -20,18 +20,18 @@ namespace HeapSort
         public void HeapSort()
         {
             BuildMaxHeap();
-            for (int i = heapLength - 1; i > 0; i--)
+            for (int i = heapLength ; i >= 1; i--)
             {
-                Swap(0, i);
+                Swap(1, i);
                 heapLength--;
-                Heapify(0);
+                Heapify(1);
             }
         }
 
         public void BuildMaxHeap()
         {
             heapLength = GetLength();
-            for (int i = (heapLength - 1) / 2; i >= 0; i--)
+            for (int i = (heapLength) / 2; i >= 1; i--) 
             {
                 Heapify(i);
             }
@@ -41,7 +41,7 @@ namespace HeapSort
             int left = 2 * i;
             int right = 2 * i + 1;
             int max;
-            if (left < heapLength && GetByIndex(left).CompareTo(GetByIndex(i)) > 0)
+            if (left <= heapLength && GetByIndex(left).CompareTo(GetByIndex(i)) > 0)
             {
                 max = left;
             }
@@ -50,7 +50,7 @@ namespace HeapSort
                 max = i;
             }
 
-            if (right < heapLength && GetByIndex(right).CompareTo(GetByIndex(max)) > 0)
+            if (right <= heapLength && GetByIndex(right).CompareTo(GetByIndex(max)) > 0)
             {
                 max = right;
             }

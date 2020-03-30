@@ -23,15 +23,16 @@ namespace HeapSort
             inDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\long.csv";
             outDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\out.csv";
             if(memoryMode == "OP"){
-                TreeOP treeOP = new TreeOP();
+                TreeOperational treeOP = new TreeOperational();
                 treeOP.FillFromFile(inDir);
+                treeOP.GetByIndex(10);
                 treeOP.HeapSort();
                 treeOP.PrintToFile(outDir);
             }else{
-                TreeD treeD = new TreeD(@"../../../../dataFiles/dinamicFile.dat");
-                treeD.FillFromFile(inDir);
-                treeD.HeapSort();
-                treeD.PrintToFile(inDir);
+                //TreeDisk treeD = new TreeDisk(@"../../../../dataFiles/dinamicFile.dat");
+                //treeD.FillFromFile(inDir);
+                //treeD.HeapSort();
+                //treeD.PrintToFile(inDir);
             }
 
 
