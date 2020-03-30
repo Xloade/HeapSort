@@ -16,11 +16,12 @@ namespace HeapSort
                 memoryMode = Console.ReadLine();
 
             } while (!(memoryMode == "OP" || memoryMode == "D"));
-            Console.WriteLine("Input file:");
-            inDir = Console.ReadLine();
-            Console.WriteLine("Output file:");
-            outDir = Console.ReadLine();
-
+            // Console.WriteLine("Input file:");
+            // inDir = Console.ReadLine();
+            // Console.WriteLine("Output file:");
+            // outDir = Console.ReadLine();
+            inDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\long.csv";
+            outDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\out.csv";
             if(memoryMode == "OP"){
                 TreeOP treeOP = new TreeOP();
                 treeOP.FillFromFile(inDir);
