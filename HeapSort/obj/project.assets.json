@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\swifty\\Desktop\\test\\test\\test.csproj",
-      "projectName": "test",
-      "projectPath": "C:\\Users\\swifty\\Desktop\\test\\test\\test.csproj",
+      "projectUniqueName": "C:\\Users\\swifty\\Desktop\\HeapSort\\HeapSort\\HeapSort.csproj",
+      "projectName": "HeapSort",
+      "projectPath": "C:\\Users\\swifty\\Desktop\\HeapSort\\HeapSort\\HeapSort.csproj",
       "packagesPath": "C:\\Users\\swifty\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\swifty\\Desktop\\test\\test\\obj\\",
+      "outputPath": "C:\\Users\\swifty\\Desktop\\HeapSort\\HeapSort\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\swifty\\AppData\\Roaming\\NuGet\\NuGet.Config"
