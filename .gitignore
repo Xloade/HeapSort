@@ -1,5 +1,3 @@
 test/obj/Debug/netcoreapp3.1/test.assets.cache
-HeapSort/bin/Debug/netcoreapp3.1/test.deps.json
-HeapSort/bin/Debug/netcoreapp3.1/HeapSort.dll
-HeapSort/bin/Debug/netcoreapp3.1/HeapSort.pdb
-HeapSort/obj/Debug/netcoreapp3.1/HeapSort.pdb
+HeapSort/bin/
+HeapSort/obj/
