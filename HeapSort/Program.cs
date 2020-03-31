@@ -6,7 +6,7 @@ namespace HeapSort
     {
         static void Main(string[] args)
         {
-            
+
             string memoryMode;
             string inDir;
             string outDir;
@@ -22,17 +22,19 @@ namespace HeapSort
             // outDir = Console.ReadLine();
             inDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\long.csv";
             outDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\out.csv";
-            if(memoryMode == "OP"){
+            if (memoryMode == "OP")
+            {
                 TreeOperational treeOP = new TreeOperational();
                 treeOP.FillFromFile(inDir);
-                treeOP.GetByIndex(10);
                 treeOP.HeapSort();
                 treeOP.PrintToFile(outDir);
-            }else{
-                //TreeDisk treeD = new TreeDisk(@"../../../../dataFiles/dinamicFile.dat");
-                //treeD.FillFromFile(inDir);
-                //treeD.HeapSort();
-                //treeD.PrintToFile(inDir);
+            }
+            else
+            {
+                TreeDisk treeD = new TreeDisk(@"../dataFiles/");
+                treeD.FillFromFile(inDir);
+                treeD.HeapSort();
+                treeD.PrintToFile(outDir);
             }
 
 

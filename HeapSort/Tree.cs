@@ -12,7 +12,7 @@ namespace HeapSort
         {
         }
         abstract public int GetLength();
-        abstract public DatePrice GetByIndex(int index);
+        abstract public DatePrice Get(int index);
         abstract public void PrintToFile(string fileDir);
         abstract public void FillFromFile(string fileDir);
         public abstract void Swap(int i, int j);
@@ -20,7 +20,7 @@ namespace HeapSort
         public void HeapSort()
         {
             BuildMaxHeap();
-            for (int i = heapLength ; i >= 1; i--)
+            for (int i = heapLength; i >= 1; i--)
             {
                 Swap(1, i);
                 heapLength--;
@@ -31,7 +31,7 @@ namespace HeapSort
         public void BuildMaxHeap()
         {
             heapLength = GetLength();
-            for (int i = (heapLength) / 2; i >= 1; i--) 
+            for (int i = (heapLength) / 2; i >= 1; i--)
             {
                 Heapify(i);
             }
@@ -41,7 +41,7 @@ namespace HeapSort
             int left = 2 * i;
             int right = 2 * i + 1;
             int max;
-            if (left <= heapLength && GetByIndex(left).CompareTo(GetByIndex(i)) > 0)
+            if (left <= heapLength && Get(left).CompareTo(Get(i)) > 0)
             {
                 max = left;
             }
@@ -50,7 +50,7 @@ namespace HeapSort
                 max = i;
             }
 
-            if (right <= heapLength && GetByIndex(right).CompareTo(GetByIndex(max)) > 0)
+            if (right <= heapLength && Get(right).CompareTo(Get(max)) > 0)
             {
                 max = right;
             }
