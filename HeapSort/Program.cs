@@ -1,5 +1,7 @@
-﻿using System;
-
+﻿
+using System.IO;
+using System;
+using System.Diagnostics;
 namespace HeapSort
 {
     class Program
@@ -8,45 +10,80 @@ namespace HeapSort
         {
 
             string memoryMode;
-            string inDir;
-            string outDir;
+            string inDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\long.csv";;
+            string outDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\out.csv";;
+            string[] inFiles1 = {"25600.csv","51200.csv","102400.csv","204800.csv", "409600.csv"};
+            string[] inFiles2 = {"800.csv","1600.csv","3200.csv","6400.csv","12800.csv"};
+            
             do
             {
-                Console.WriteLine("Use OP / D memory?");
+                Console.WriteLine("Use op / d memory or test?");
                 memoryMode = Console.ReadLine();
 
-            } while (!(memoryMode == "OP" || memoryMode == "D"));
-            // Console.WriteLine("Input file:");
-            // inDir = Console.ReadLine();
-            // Console.WriteLine("Output file:");
-            // outDir = Console.ReadLine();
-            inDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\long.csv";
-            outDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\out.csv";
-            if (memoryMode == "OP")
+            } while (!(memoryMode == "op" || memoryMode == "d" || memoryMode == "test"));
+
+            if (memoryMode == "op")
             {
                 TreeOperational treeOP = new TreeOperational();
                 treeOP.FillFromFile(inDir);
                 treeOP.HeapSort();
                 treeOP.PrintToFile(outDir);
             }
-            else
+            else if(memoryMode == "d")
             {
                 TreeDisk treeD = new TreeDisk(@"../dataFiles/");
                 treeD.FillFromFile(inDir);
                 treeD.HeapSort();
                 treeD.PrintToFile(outDir);
+            } else{
+                inDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles";
+                testOP(inDir,inFiles1);
+                testD(inDir,inFiles2,@"../dataFiles/");
             }
+            Console.ReadLine();
+        }
 
+        static void testOP(string inDir, string[] inFiles){
+            Stopwatch stopWatch = new Stopwatch();
+            TreeOperational treeOP;
+            Console.WriteLine("Heapsort test with operational memory");
+            Console.WriteLine("  N      time elapsed    compare count    swap count");
+            foreach (string item in inFiles)
+            {
+                treeOP = new TreeOperational();
+                treeOP.FillFromFile($@"{inDir}\{item}");
+                stopWatch.Start();
 
-            //TreeOP treeOP = new TreeOP();
-            //treeOP.FillFromFile(@"../../../../dataFiles/long.csv");
-            //treeOP.HeapSort();
-            //treeOP.PrintToFile(@"../../../../dataFiles/long_sorted_OP.csv");
+                treeOP.HeapSort();
 
-            //TreeD treeD = new TreeD(@"../../../../dataFiles/dinamicFile.dat");
-            //treeD.FillFromFile(@"../../../../dataFiles/long.csv");
-            //treeD.HeapSort();
-            //treeD.PrintToFile(@"../../../../dataFiles/long_sorted_D.csv");
+                stopWatch.Stop();
+                TimeSpan ts = stopWatch.Elapsed;
+                string rezults = $"{treeOP.GetLength(),7} {ts} {treeOP.compareCount, 12} {treeOP.swapCount, 12}";
+                Console.WriteLine(rezults);
+                stopWatch.Reset();
+            }
+        }
+        static void testD(string inDir, string[] inFiles, string externalFileDir){
+            Stopwatch stopWatch = new Stopwatch();
+            TreeDisk treeD;
+            Console.WriteLine("Heapsort test with external memory");
+            Console.WriteLine("  N      time elapsed    compare count    swap count");
+            foreach (string item in inFiles)
+            {
+                treeD = new TreeDisk(@"../dataFiles/");
+                treeD.FillFromFile($@"{inDir}\{item}");
+                stopWatch.Start();
+
+                treeD.HeapSort();
+
+                stopWatch.Stop();
+                TimeSpan ts = stopWatch.Elapsed;
+                string rezults = $"{treeD.GetLength(),7} {ts} {treeD.compareCount, 12} {treeD.swapCount, 12}";
+                Console.WriteLine(rezults);
+                stopWatch.Reset();
+                treeD.EndStreams();
+            }
+            Console.ReadLine();
         }
     }
 }

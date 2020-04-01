@@ -1,3 +1,4 @@
+using System.Net.Sockets;
 using System.Numerics;
 using System.ComponentModel.DataAnnotations.Schema;
 using System;
@@ -23,8 +24,12 @@ namespace HeapSort
             fileStreamData = File.Open($"{OperationalFileDir}objects.dat", FileMode.Create);
             writerData = new BinaryWriter(fileStreamData);
             readerData = new BinaryReader(fileStreamData);
+            
         }
-
+        public void EndStreams(){
+            fileStreamTree.Dispose();
+            fileStreamData.Dispose();
+        }
         public override int GetLength()
         {
             return size;
