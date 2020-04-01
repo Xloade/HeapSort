@@ -17,10 +17,10 @@ namespace HeapSort
         public TreeDisk(string OperationalFileDir) : base()
         {
             size = 0;
-            fileStreamTree = File.Open($"{OperationalFileDir}diskFile1.dat", FileMode.Create);
+            fileStreamTree = File.Open($"{OperationalFileDir}tree.dat", FileMode.Create);
             writerTree = new BinaryWriter(fileStreamTree);
             readerTree = new BinaryReader(fileStreamTree);
-            fileStreamData = File.Open($"{OperationalFileDir}diskFile2.dat", FileMode.Create);
+            fileStreamData = File.Open($"{OperationalFileDir}objects.dat", FileMode.Create);
             writerData = new BinaryWriter(fileStreamData);
             readerData = new BinaryReader(fileStreamData);
         }

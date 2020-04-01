@@ -2,5 +2,5 @@ test/obj/Debug/netcoreapp3.1/test.assets.cache
 HeapSort/bin/
 HeapSort/obj/
 dataFiles/out.csv
-dataFiles/diskFile1.dat
-dataFiles/diskFile2.dat
+dataFiles/objects.dat
+dataFiles/tree.dat
