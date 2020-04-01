@@ -10,8 +10,8 @@ namespace HeapSort
         {
 
             string memoryMode;
-            string inDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\long.csv";;
-            string outDir = @"C:\Users\swifty\Desktop\HeapSort\dataFiles\out.csv";;
+            string inDir = @"..\dataFiles\shortTest.csv";
+            string outDir = @"..\dataFiles\out.csv";
             string[] inFiles1 = {"25600.csv","51200.csv","102400.csv","204800.csv", "409600.csv"};
             string[] inFiles2 = {"800.csv","1600.csv","3200.csv","6400.csv","12800.csv"};
             
